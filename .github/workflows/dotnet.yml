@@ -24,10 +24,10 @@ jobs:
           dotnet restore ./tests/BigIntegerTests.csproj
 
       - name: Build library
-        run: dotnet build ./math/ArkenMath.csproj --no-restore --configuration Release
+        run: dotnet build ./mathlib/mathlib.csproj --no-restore --configuration Release
 
       - name: Build tests
-        run: dotnet build ./tests/BigIntegerTests.csproj --no-restore --configuration Release
+        run: dotnet build ./Moria/Moria.csproj --no-restore --configuration Release
 
       - name: Run tests
-        run: dotnet test ./tests/BigIntegerTests.csproj --no-build --verbosity normal
+        run: dotnet test ./Moria/Moria.csproj --no-build --verbosity normal
