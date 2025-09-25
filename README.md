@@ -83,7 +83,7 @@ Make sure your test project references the `ArkenMath` library via a `<ProjectRe
 
 ## Contributing
 
-Feel free submit pull requests or open issues.
+Feel free to submit pull requests or open issues.
 
 ---
 
