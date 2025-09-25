@@ -20,7 +20,7 @@ jobs:
 
       - name: Restore dependencies
         run: |
-          dotnet restore /mathlib/mathlib.csproj
+          dotnet restore ./mathlib/mathlib.csproj
           dotnet restore ./Moria/Moria.csproj
 
       - name: Build library
