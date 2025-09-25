@@ -20,8 +20,8 @@ jobs:
 
       - name: Restore dependencies
         run: |
-          dotnet restore ./math/ArkenMath.csproj
-          dotnet restore ./tests/BigIntegerTests.csproj
+          dotnet restore /mathlib/mathlib.csproj
+          dotnet restore ./Moria/Moria.csproj
 
       - name: Build library
         run: dotnet build ./mathlib/mathlib.csproj --no-restore --configuration Release
