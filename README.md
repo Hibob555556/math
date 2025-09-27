@@ -8,9 +8,13 @@
 
 * Addition and subtraction of arbitrarily large integers
 * Supports positive and negative numbers
+* Implicit conversions from `int`, `long`, `uint`, and `ulong`
 * Internal representation using arrays of 32-bit limbs (`uint[]`)
-* Absolute value and comparison methods
-* Fully tested with MSTest
+* Absolute value (`GetAbsoluteValue`) and zero-check (`IsZero`)
+* Comparison of magnitudes with `CompareAbs`
+* Full support for positive, negative, and zero values
+* String-based initialization for numeric input
+* Fully tested with MSTest, covering constructors, arithmetic, comparisons, and utility methods
 * Configured for CI/CD via GitHub Actions
 
 ---
@@ -44,11 +48,30 @@ class Program
 {
     static void Main(string[] args)
     {
-        var a = new BigInteger(new uint[] { 5 }, 1);  // +5
-        var b = new BigInteger(new uint[] { 3 }, -1); // -3
+        // Implicit conversions
+        BigInteger a = 12345;        // int
+        BigInteger b = (ulong)67890; // ulong
 
-        var result = a.Add(b); // internally handles subtraction
-        Console.WriteLine(result); // Output: +[2]
+        // Addition
+        var sum = a.Add(b);
+        Console.WriteLine($"Sum: {sum}"); // Output: 80235
+
+        // Subtraction (using Add with negative numbers)
+        BigInteger c = 5000;
+        BigInteger d = -1234;
+        var diff = c.Add(d);
+        Console.WriteLine($"Difference: {diff}"); // Output: 3766
+
+        // Multi-limb number
+        BigInteger e = new BigInteger(new uint[] { 0xFFFFFFFF, 1 }, 1); // Large number across two limbs
+        Console.WriteLine($"Multi-limb: {e}");
+
+        // Absolute value
+        BigInteger f = new BigInteger(-9876);
+        Console.WriteLine($"Absolute: {f.GetAbsoluteValue()}"); // Output: 9876
+
+        // Comparison
+        Console.WriteLine($"Compare |a| vs |b|: {BigInteger.CompareAbs(a, b)}"); // -1, 0, or 1
     }
 }
 ```
@@ -76,6 +99,14 @@ Unit tests are implemented with MSTest. To run them:
 cd tests
 dotnet test BigIntegerTests.csproj
 ```
+
+The tests now cover:
+
+* All constructors (`int`, `long`, `uint`, `ulong`, `string`)
+* Arithmetic (`Add` and subtraction via `Add` with negative values)
+* Multi-limb numbers
+* Comparison (`CompareAbs`)
+* Utility methods (`GetAbsoluteValue`, `IsZero`)
 
 Make sure your test project references the `ArkenMath` library via a `<ProjectReference>` in its `.csproj` file.
 
