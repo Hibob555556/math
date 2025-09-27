@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mathlib", "mathlib.csproj", "{F671082B-92E3-D4ED-9AF9-DF44FBDE36CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F671082B-92E3-D4ED-9AF9-DF44FBDE36CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F671082B-92E3-D4ED-9AF9-DF44FBDE36CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F671082B-92E3-D4ED-9AF9-DF44FBDE36CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F671082B-92E3-D4ED-9AF9-DF44FBDE36CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCAEA17A-F7CE-462C-97A0-EEAAFD6BD002}
+	EndGlobalSection
+EndGlobal

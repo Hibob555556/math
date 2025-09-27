@@ -4,29 +4,33 @@
     {
         public static void Main(string[] args)
         {
-            int running = 1;
-            while (running == 1)
+            Console.WriteLine("Enter the first big integer:");
+            string input1 = Console.ReadLine() ?? "0";
+
+            Console.WriteLine("Enter the second big integer:");
+            string input2 = Console.ReadLine() ?? "0";
+            BigInteger sum = 0;
+            try
             {
-                Console.WriteLine("What is your first number?");
-                int n1;
-                int.TryParse(Console.ReadLine(), out n1); // use 'out'
+                BigInteger num1 = new BigInteger(input1);
+                BigInteger num2 = new BigInteger(input2);
 
-                Console.WriteLine("What is your second number?");
-                int n2;
-                int.TryParse(Console.ReadLine(), out n2); // use 'out'
+                sum = num1.Add(num2);
 
-                var a = new BigInteger(new uint[] { (uint)Math.Abs(n1) }, n1 >= 0 ? 1 : -1);
-                var b = new BigInteger(new uint[] { (uint)Math.Abs(n2) }, n2 >= 0 ? 1 : -1);
-
-                var result = a.Add(b); // should be +2
-                Console.WriteLine(result); // +[2]
-                Console.WriteLine("Enter 1 to go again or 0 to exit");
-                running = int.TryParse(Console.ReadLine(), out running) ? running : 0;
-                if (running != 1)
-                {
-                    break;
-                }
+                Console.WriteLine($"The sum is: {sum}");
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            BigInteger a = new("1234");
+            BigInteger b = new("4321");
+            sum = a.Add(b);
+            Console.WriteLine($"Sum: {sum}");
+
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }
